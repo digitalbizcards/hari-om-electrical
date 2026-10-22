@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Finishpest Enterprises — Kaizad Billimoria</title>
-  <meta name="description" content="Finishpest Enterprises — Effective Pest & Rodent Control." />
-  <meta property="og:title" content="Finishpest Enterprises" />
-  <meta property="og:description" content="Effective Pest / Rodent Control. We help you sleep better in a healthy pest-free atmosphere." />
+  <title>Hari Om Electrical &amp; Home Automation — Abhijeet J. Choudhari</title>
+  <meta name="description" content="Hari Om Electrical & Home Automation — Keeping You Always On, Always Connected." />
+  <meta property="og:title" content="Hari Om Electrical & Home Automation" />
+  <meta property="og:description" content="Keeping You Always On, Always Connected." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet" />
@@ -16,14 +16,14 @@
 
     :root {
       /* 👇 CHANGE THIS NUMBER TO ADJUST LOGO SIZE 👇 */
-      --logo-size: 95px; 
+      --logo-size: 130px; 
       /* 👆 INCREASE OR DECREASE AS NEEDED 👆 */
 
       /* Core Brand Colors */
-      --navy:      #1B3A6B; 
-      --navy-deep: #0f2245;
-      --green:     #5BBF2A;
-      --red:       #C8281E;
+      --navy:      #082B4C; 
+      --navy-deep: #061D35;
+      --green:     #FFC928;
+      --red:       #F4B900;
       
       /* UI Colors */
       --white:     #ffffff;
@@ -44,8 +44,8 @@
       align-items: center;
       justify-content: center;
       padding: 1.5rem 1rem;
-      background: #cdd6e0; 
-      background-image: radial-gradient(circle at 50% 0%, #e2e8f0 0%, #94a3b8 100%);
+      background: #dbe5ef; 
+      background-image: radial-gradient(circle at 50% 0%, #f8fafc 0%, #cbd8e6 100%);
     }
 
     /* Master Wrapper to hold both the Card and your Marketing section */
@@ -57,7 +57,7 @@
       gap: 1.5rem; /* Space between card and your marketing banner */
     }
 
-    /* ── THE MAIN APP CONTAINER (FINISHPEST) ── */
+    /* ── THE MAIN APP CONTAINER () ── */
     .app-container {
       background: var(--card-bg);
       border-radius: 36px;
@@ -99,7 +99,7 @@
     
     .widget-logo::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
-      background: linear-gradient(90deg, var(--navy), var(--green), var(--red));
+      background: linear-gradient(90deg, var(--navy), var(--green), var(--navy-deep));
     }
 
     .widget-logo img {
@@ -184,6 +184,40 @@
     }
     .widget-btn:active { transform: scale(0.96); }
 
+    /* Full-width email row: keeps long addresses readable and visually balanced */
+    .email-widget {
+      grid-column: 1 / -1;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      min-width: 0;
+    }
+    .email-widget .icon-circle {
+      flex: 0 0 44px;
+    }
+    .email-widget .widget-btn-text {
+      flex: 1 1 auto;
+      min-width: 0;
+      width: auto;
+    }
+    .email-widget .widget-btn-text h3 {
+      margin-bottom: .25rem;
+    }
+    .email-widget .widget-btn-text p {
+      font-size: .78rem;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+      word-break: normal;
+      white-space: normal;
+    }
+    @media (max-width: 360px) {
+      .email-widget { gap: .75rem; padding: .9rem; }
+      .email-widget .widget-btn-text p { font-size: .72rem; }
+    }
+
+
     .icon-circle {
       width: 44px; height: 44px; border-radius: 14px;
       display: flex; align-items: center; justify-content: center;
@@ -206,7 +240,7 @@
 
     /* 4. Action Buttons */
     .btn-main {
-      background: linear-gradient(135deg, var(--green) 0%, #4da522 100%);
+      background: linear-gradient(135deg, var(--green) 0%, #f4b900 100%);
       color: var(--white);
       padding: 1.1rem;
       border-radius: 20px;
@@ -230,6 +264,131 @@
     }
     .btn-secondary:active { transform: scale(0.98); border-color: var(--navy); }
     .btn-secondary svg { width: 20px; height: 20px; }
+
+
+    .btn-services {
+      width: 100%;
+      background: var(--navy);
+      color: var(--white);
+      padding: 1rem 1.1rem;
+      border-radius: 20px;
+      display: flex; align-items: center; justify-content: center; gap: 0.65rem;
+      font-size: 1rem; font-weight: 700; text-decoration: none;
+      border: 1.5px solid var(--navy);
+      cursor: pointer; transition: transform 0.15s, background 0.15s;
+    }
+    .btn-services:active { transform: scale(0.98); }
+    .btn-services svg { width: 22px; height: 22px; color: var(--green); }
+    /* Services popup */
+    .services-overlay {
+      display: none; position: fixed; inset: 0; z-index: 1100;
+      align-items: center; justify-content: center;
+      padding: 1rem; background: rgba(6, 29, 53, .72);
+      backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+    }
+    .services-overlay.open { display: flex; }
+    .services-panel {
+      display: block; position: relative; width: 100%; max-width: 390px;
+      max-height: min(82vh, 620px); overflow-y: auto;
+      background: #ffffff; border: 2px solid #ffc928; border-radius: 24px;
+      padding: 1.25rem; box-shadow: 0 24px 70px rgba(0,0,0,.28);
+      animation: servicesIn .22s ease-out both;
+    }
+    @keyframes servicesIn { from { opacity: 0; transform: translateY(8px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    .services-modal-header { display: flex; align-items: flex-start; justify-content: space-between; gap: .75rem; margin-bottom: 1.15rem; }
+    .services-heading { display: flex; align-items: center; gap: .75rem; min-width: 0; }
+    .services-heading-icon {
+      width: 44px; height: 44px; flex: 0 0 44px; display: flex; align-items: center; justify-content: center;
+      border-radius: 14px; color: #ffc928; background: #082b4c;
+    }
+    .services-heading-icon svg { width: 22px; height: 22px; }
+    .services-panel h3 { color: var(--navy); font-size: 1rem; line-height: 1.25; margin-bottom: .25rem; }
+    .services-subtitle { color: #64748b; font-size: .72rem; line-height: 1.4; font-weight: 500; }
+    .services-close {
+      flex: 0 0 36px; width: 36px; height: 36px; border: 0; border-radius: 12px;
+      background: #fff4c2; color: #082b4c; display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+    }
+    .services-close svg { width: 20px; height: 20px; }
+    .services-list { display: grid; grid-template-columns: 1fr 1fr; gap: .65rem; }
+    .service-item {
+      display: flex; align-items: flex-start; gap: .5rem; min-width: 0; min-height: 70px;
+      background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 15px;
+      padding: .75rem .65rem; color: var(--navy-deep); font-size: .76rem; line-height: 1.4;
+      font-weight: 700; overflow-wrap: anywhere;
+    }
+    .service-check {
+      display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px;
+      flex: 0 0 20px; border-radius: 7px; background: #ffc928; color: #082b4c;
+      font-size: .75rem; font-weight: 900; margin-top: -1px;
+    }
+    .service-item:last-child:nth-child(odd) { grid-column: 1 / -1; min-height: auto; }
+    @media (max-width: 360px) {
+      .services-list { grid-template-columns: 1fr; }
+      .service-item:last-child:nth-child(odd) { grid-column: auto; }
+      .services-panel { padding: 1rem; }
+    }
+    /* Prevent long contact details from overflowing their cards */
+    .grid-container > *, .widget-btn, .widget-btn-text { min-width: 0; }
+    .widget-btn-text { width: 100%; max-width: 100%; }
+    .widget-btn-text p { max-width: 100%; overflow-wrap: anywhere; word-break: break-word; line-height: 1.4; }
+    .profile-text { min-width: 0; overflow-wrap: anywhere; }
+    .profile-name { overflow-wrap: anywhere; }
+    .bg-wa { background: var(--green); }
+
+
+    /* Full-width contact rows: no half-width square tiles */
+    .grid-container {
+      display: flex;
+      flex-direction: column;
+      gap: .7rem;
+      width: 100%;
+    }
+    .grid-container > .widget-btn {
+      width: 100%;
+      min-width: 0;
+      min-height: 82px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 1rem;
+      padding: 1rem 1.1rem;
+      border-radius: 20px;
+    }
+    .grid-container > .widget-btn .icon-circle {
+      flex: 0 0 44px;
+      width: 44px;
+      height: 44px;
+    }
+    .grid-container > .widget-btn .widget-btn-text {
+      flex: 1 1 auto;
+      width: auto;
+      min-width: 0;
+    }
+    .grid-container > .widget-btn .widget-btn-text h3 {
+      margin: 0 0 .25rem;
+      font-size: .92rem;
+      line-height: 1.25;
+    }
+    .grid-container > .widget-btn .widget-btn-text p {
+      margin: 0;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      font-size: .78rem;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+      word-break: normal;
+      white-space: normal;
+    }
+    .grid-container > .email-widget {
+      grid-column: auto;
+    }
+    @media (max-width: 360px) {
+      .grid-container > .widget-btn { padding: .85rem; gap: .75rem; }
+      .grid-container > .widget-btn .widget-btn-text p { font-size: .73rem; }
+    }
 
     /* Footer text inside container */
     .footer-text {
@@ -343,43 +502,43 @@
 <!-- Master wrapper holds both the main card and your marketing banner -->
 <div class="master-wrapper">
 
-  <!-- 🎯 CLIENT'S MAIN CARD (FINISHPEST) -->
+  <!-- 🎯 CLIENT'S MAIN CARD () -->
   <div class="app-container">
 
     <!-- WIDGET 1: Clean White Logo Header -->
     <div class="widget widget-logo">
-      <img src="finishpest.png" alt="Finishpest Enterprises" />
+      <img src="hariom.png" alt="Hari Om Electrical & Home Automation" />
     </div>
 
     <!-- WIDGET 2: Striking Dark Profile Card -->
     <div class="widget widget-profile">
       <div class="profile-img-box">
         <div class="inner-img">
-          <img src="kaizad3.jpg" alt="Kaizad Billimoria" />
+          <img src="abhijeet.png" alt="Abhijeet J. Choudhari" />
           <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
         </div>
       </div>
       <div class="profile-text">
-        <div class="profile-name">Kaizad Billimoria</div>
-        <div class="profile-title">Founder & Director</div>
-        <div class="profile-badge">Pest Control</div>
+        <div class="profile-name">Abhijeet J. Choudhari</div>
+        <div class="profile-title">Proprietor</div>
+        <div class="profile-badge">Electrical &amp; Home Automation</div>
       </div>
     </div>
 
     <!-- WIDGET 3: iOS-Style Contact Grid -->
     <div class="grid-container">
       
-      <a href="tel:+919594064436" class="widget widget-btn">
+      <a href="tel:+919324497360" class="widget widget-btn">
         <div class="icon-circle bg-call">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
         </div>
         <div class="widget-btn-text">
           <h3>Call</h3>
-          <p>+91 95940 64436</p>
+          <p>+91 93244 97360</p>
         </div>
       </a>
 
-      <a href="https://wa.me/919594064436" target="_blank" rel="noopener" class="widget widget-btn">
+      <a href="https://wa.me/919324497360" target="_blank" rel="noopener" class="widget widget-btn">
         <div class="icon-circle bg-wa">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2C6.477 2 2 6.477 2 12.004c0 1.763.456 3.418 1.255 4.861L2 22l5.278-1.233A9.956 9.956 0 0012.004 22C17.523 22 22 17.523 22 12.004 22 6.477 17.523 2 12.004 2zm0 18.167a8.14 8.14 0 01-4.147-1.134l-.298-.177-3.073.718.731-2.997-.194-.309a8.175 8.175 0 01-1.253-4.268C3.77 7.08 7.519 3.833 12.004 3.833c2.196 0 4.258.856 5.81 2.408a8.166 8.166 0 012.394 5.81c0 4.483-3.747 8.116-8.204 8.116z"/></svg>
         </div>
@@ -389,26 +548,58 @@
         </div>
       </a>
 
-      <a href="mailto:finishpest@gmail.com" class="widget widget-btn">
+      <a href="mailto:choudhari.abhijeet01@gmail.com" class="widget widget-btn email-widget">
         <div class="icon-circle bg-email">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
         </div>
         <div class="widget-btn-text">
           <h3>Email</h3>
-          <p>finishpest@gmail...</p>
+          <p>choudhari.abhijeet01@gmail.com</p>
         </div>
       </a>
 
-      <a href="https://finishpest.com" target="_blank" rel="noopener" class="widget widget-btn">
+      <a href="https://vaahaatech.com" target="_blank" rel="noopener" class="widget widget-btn">
         <div class="icon-circle bg-web">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
         </div>
         <div class="widget-btn-text">
           <h3>Website</h3>
-          <p>finishpest.com</p>
+          <p>vaahaatech.com</p>
         </div>
       </a>
 
+    </div>
+
+
+    <button class="btn-services" type="button" onclick="toggleServices()" aria-expanded="false" aria-controls="services-panel">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 2 7v10l10 5 10-5V7L12 2zm0 2.3L18.9 7.7 12 11.1 5.1 7.7 12 4.3zM4 9.3l7 3.5v6.8l-7-3.5V9.3zm9 10.3v-6.8l7-3.5v6.8l-7 3.5z"/></svg>
+      View Our Services
+    </button>
+    <!-- Services popup modal -->
+    <div class="services-overlay" id="services-overlay" onclick="handleServicesOverlayClick(event)" aria-hidden="true">
+      <div class="services-panel" id="services-panel" role="dialog" aria-modal="true" aria-labelledby="services-title">
+        <div class="services-modal-header">
+          <div class="services-heading">
+            <div class="services-heading-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-4.5 12.36c.6.52 1 1.08 1.15 1.64h6.7c.15-.56.55-1.12 1.15-1.64A7 7 0 0 0 12 2zm-2.25 16h4.5v1h-4.5v-1zm.75 3h3v-1h-3v1zM9.5 17h5c.1-.68.44-1.35.95-1.95a5.5 5.5 0 1 0-6.9 0c.51.6.85 1.27.95 1.95z"/></svg>
+            </div>
+            <div>
+              <h3 id="services-title">Electrical &amp; Home Automation</h3>
+              <div class="services-subtitle">Smart solutions. Safer spaces. Brighter living.</div>
+            </div>
+          </div>
+          <button class="services-close" type="button" onclick="closeServices()" aria-label="Close services">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          </button>
+        </div>
+        <div class="services-list">
+          <div class="service-item"><span class="service-check">✓</span><span>Home Automation</span></div>
+          <div class="service-item"><span class="service-check">✓</span><span>Electrical Installation &amp; Wiring</span></div>
+          <div class="service-item"><span class="service-check">✓</span><span>Switch Boards &amp; Accessories</span></div>
+          <div class="service-item"><span class="service-check">✓</span><span>Lighting Solutions</span></div>
+          <div class="service-item"><span class="service-check">✓</span><span>CCTV &amp; Security Systems</span></div>
+        </div>
+      </div>
     </div>
 
     <!-- WIDGET 4: Main Actions -->
@@ -423,7 +614,7 @@
     </button>
 
     <div class="footer-text">
-     <strong>We help you sleep better in a healthy pest-free atmosphere!</strong>
+     <strong>Keeping You Always On, Always Connected.</strong>
     </div>
   </div>
   <!-- END OF MAIN CARD -->
@@ -452,12 +643,12 @@
 
       <!-- The Form Block -->
       <div id="form-content">
-        <p class="modal-subtitle">Leave your details below and Kaizad will get back to you shortly.</p>
+        <p class="modal-subtitle">Leave your details below and Abhijeet will get back to you shortly.</p>
         
         <form id="exchange-form" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key"  value="410376b0-ace4-45a1-98f1-94767e859ba0" />
-          <input type="hidden" name="subject"     value="New Contact Exchange — Finishpest Enterprises" />
-          <input type="hidden" name="from_name"   value="Finishpest Card" />
+          <input type="hidden" name="access_key"  value="change_access_key_here"" />
+          <input type="hidden" name="subject"     value="New Contact Exchange — Hari Om Electrical & Home Automation" />
+          <input type="hidden" name="from_name"   value="Hari Om Digital Business Card" />
 
           <div class="form-field">
             <input type="text"  name="name" placeholder="Your Name" required />
@@ -494,6 +685,31 @@
 </div>
 
 <script>
+  function toggleServices() {
+    const overlay = document.getElementById('services-overlay');
+    const button = document.querySelector('.btn-services');
+    overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden', 'false');
+    button.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    const closeButton = overlay.querySelector('.services-close');
+    if (closeButton) closeButton.focus();
+  }
+
+  function closeServices() {
+    const overlay = document.getElementById('services-overlay');
+    const button = document.querySelector('.btn-services');
+    overlay.classList.remove('open');
+    overlay.setAttribute('aria-hidden', 'true');
+    button.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    button.focus();
+  }
+
+  function handleServicesOverlayClick(event) {
+    if (event.target === document.getElementById('services-overlay')) closeServices();
+  }
+
   function openModal()  { document.getElementById('modal').classList.add('open'); }
   
   function closeModal() { 
@@ -510,7 +726,13 @@
   }
   
   function handleOverlayClick(e) { if (e.target === document.getElementById('modal')) closeModal(); }
-  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeModal();
+      const services = document.getElementById('services-overlay');
+      if (services && services.classList.contains('open')) closeServices();
+    }
+  });
 
   // AJAX FORM SUBMISSION
   const form = document.getElementById('exchange-form');
