@@ -283,15 +283,19 @@
     .services-overlay {
       display: none; position: fixed; inset: 0; z-index: 1100;
       align-items: center; justify-content: center;
-      padding: 1rem; background: rgba(6, 29, 53, .72);
+      padding: 12px; box-sizing: border-box;
+      background: rgba(6, 29, 53, .72);
       backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+      overflow-y: auto;
     }
     .services-overlay.open { display: flex; }
     .services-panel {
       display: block; position: relative; width: 100%; max-width: 390px;
-      max-height: min(82vh, 620px); overflow-y: auto;
+      max-height: calc(100vh - 24px); max-height: calc(100dvh - 24px);
+      box-sizing: border-box; overflow-x: hidden; overflow-y: auto;
+      overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
       background: #ffffff; border: 2px solid #ffc928; border-radius: 24px;
-      padding: 1.25rem; box-shadow: 0 24px 70px rgba(0,0,0,.28);
+      padding: 1.1rem; box-shadow: 0 24px 70px rgba(0,0,0,.28);
       animation: servicesIn .22s ease-out both;
     }
     @keyframes servicesIn { from { opacity: 0; transform: translateY(8px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
@@ -323,11 +327,28 @@
       font-size: .75rem; font-weight: 900; margin-top: -1px;
     }
     .service-item:last-child:nth-child(odd) { grid-column: 1 / -1; min-height: auto; }
-    @media (max-width: 360px) {
-      .services-list { grid-template-columns: 1fr; }
-      .service-item:last-child:nth-child(odd) { grid-column: auto; }
-      .services-panel { padding: 1rem; }
+    @media (max-width: 480px) {
+      .services-overlay { padding: 10px; align-items: center; }
+      .services-panel {
+        width: 100%; max-width: 420px;
+        max-height: calc(100vh - 20px); max-height: calc(100dvh - 20px);
+        padding: .95rem; border-radius: 20px;
+      }
+      .services-modal-header { gap: .5rem; margin-bottom: .85rem; }
+      .services-heading { gap: .6rem; }
+      .services-heading-icon { width: 38px; height: 38px; flex-basis: 38px; border-radius: 12px; }
+      .services-panel h3 { font-size: .94rem; }
+      .services-subtitle { font-size: .7rem; }
+      .services-close { width: 34px; height: 34px; flex-basis: 34px; }
+      .services-list { grid-template-columns: 1fr; gap: .5rem; }
+      .service-item, .service-item:last-child:nth-child(odd) {
+        grid-column: auto; min-height: 0; padding: .65rem; border-radius: 12px;
+      }
     }
+
+    .services-panel *, .services-overlay * { box-sizing: border-box; }
+    .services-panel .services-list { width: 100%; }
+
     /* Prevent long contact details from overflowing their cards */
     .grid-container > *, .widget-btn, .widget-btn-text { min-width: 0; }
     .widget-btn-text { width: 100%; max-width: 100%; }
@@ -646,7 +667,7 @@
         <p class="modal-subtitle">Leave your details below and Abhijeet will get back to you shortly.</p>
         
         <form id="exchange-form" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key"  value="change_access_key_here"" />
+          <input type="hidden" name="access_key"  value="change_access_code_here" />
           <input type="hidden" name="subject"     value="New Contact Exchange — Hari Om Electrical & Home Automation" />
           <input type="hidden" name="from_name"   value="Hari Om Digital Business Card" />
 
